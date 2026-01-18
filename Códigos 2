@@ -1,0 +1,115 @@
+package testedeiantem;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class JOGO {
+	public static void main(String[]args) {
+		Scanner entrada= new Scanner(System.in);
+		
+	    String[] casa1 =new String[5];
+		String[] casa2 =new String[5];
+		String[] casa3 =new String[5];
+		String[] casa4 =new String[5];
+		String[] casa5 =new String[5];
+		 
+		    casa1[0] = "brasileira";
+		    casa1[1] = "amarela";
+		    casa1[2] = "suco";
+		    casa1[3] = "tucano";
+		    casa1[4] = "samba";
+		    
+		    casa2[0] = "japonesa";
+		    casa2[1] = "azul";
+		    casa2[2] = "chá verde";
+		    casa2[3] = "panda";
+		    casa2[4] = "k-pop";
+
+		    casa3[0] = "italiana";
+		    casa3[1] = "verde";
+		    casa3[2] = "café";
+		    casa3[3] = "lobo";
+		    casa3[4] = "opera";
+
+		    casa4[0] = "canadense";
+		    casa4[1] = "vermelha";
+		    casa4[2] = "xarope";
+		    casa4[3] = "castor";
+		    casa4[4] = "jazz";
+
+		    casa5[0] = "sul africana";
+		    casa5[1] = "laranja";
+		    casa5[2] = "refrigerante";
+		    casa5[3] = "leão";
+		    casa5[4] = "rock";
+		    
+		    String[] dicas = {
+		            "Dica 1: O dono da casa começa ouvindo música brasileira enquanto toma suco café da manhã.",
+		            "Dica 2: O animal da casa 1 é um pássaro exótico.",
+		            "Dica 3: Ao lado da casa azul é possível ouvir música brasileira.",
+		            "Dica 4: O morador costuma relaxar à noite tomando chá quente antes de dormir.",
+		            "Dica 5: A casa japonesa tem cor azul como predominante e uma das crianças da casa tem um panda de pelúcia.",
+
+		            "Dica 6: Ao lado da casa onde se escuta ópera, é possível ouvir kpop.",
+		            "Dica 7: Na casa italiana, o cheiro de café expresso domina a casa todo dia.",
+		            "Dica 8: A decoração da casa do meio tem tons verdes.",
+		            "Dica 9: O italiano adora ouvir ópera enquanto lê.",
+		            "Dica 10: A casa canadense tem um frasco de xarope de bordo sempre à disposição.",
+
+		            "Dica 11: A cor vermelha aparece no telhado da casa 4.",
+		            "Dica 12: Ao lado da casa com cheiro de laranja é possível ouvir jazz.",
+		            "Dica 13: Na última casa o morador adora refrigerante de laranja.",
+		            "Dica 14: Na casa 5 as janelas são laranjas para combinar com o pé de laranjeira que fica na frente da casa.",
+		            "Dica 15: Ao lado da casa canadense é possível ouvir rock enquanto um leão ruge."
+		        };
+		    System.out.println("Bem vindo(a) ao jogo conhecido como teste de Einstem da 1812 \nAntes de iniciar vamos dar uma olhada nas regras!\nTemos 5 casas cada casa tem uma nacionalidade, cor, bebida, animal e estilo musical unicos\nA partir das dicas a seguir e das opções disponiveis você deve determinar as caracteristicas de cada casa()todas as respostas em letra minuscula)!");
+		    System.out.println("\nAs possíveis nacionalidades são: Brasileira; Japonesa; Sul-africana, Italiana e Canadense  \nAs possíveis cores são: Laranja; Amarela; Azul; Verde e vermelha.\nAs possíveis bebidas são: Xarope; Refrigerante; Café; chá verde e suco de maracujá\nOs possíveis animais são: Tucano; Panda; Lobo; Castor e Leão\nOs possíveis estilos musicais são: Rock; Jazz; Opera; K-pop e Samba\r\n"
+		    		+ "");
+		    		/////a lista que talvez entra vai ser aqui /////
+		    		//print das dicas:
+		    System.out.println("===== TESTE DO EINSTEIN - DICAS =====\n");
+
+		    	for (int posicao = 0; posicao < 15; posicao++) {
+		    		System.out.println(dicas[posicao]); }
+		    	
+		    	//parte em que o user digita:
+		    	boolean fim=true;
+		    	
+		    	ArrayList<String> rcasa1 = new ArrayList<String>();
+		    	
+		    	while(fim=true){
+		    		System.out.println("Qual o numero da casa que deseja responder?");
+		    		int ncasa=entrada.nextInt();
+		    			if(ncasa==1){
+
+		   
+		    				if(rcasa1.size()==5) {
+		    					for (int posicao = 0; posicao < 15; posicao++) {
+				    				System.out.println("===== TESTE DO EINSTEIN - DICAS =====\n");
+		    						System.out.println(dicas[posicao]); }				
+		    					System.out.println("\nCASA 1 ESTÁ COMPLETA!");
+		    					System.out.println("Casa1:");
+		    					for(int lugar=0;lugar<5;lugar++){
+		    						System.out.println(casa1[lugar]); 
+		    					}
+		    				}
+		    				else {
+		    				System.out.println("Digite a carcteristica da casa:");
+		    				String caract=entrada.next();
+		    					if (Arrays.asList(casa1).contains(caract)) {
+		    		            System.out.println("Essa cacteristica está presente!");
+		    		    		rcasa1.add(caract);
+		    		    		System.out.println("Casa1: "+rcasa1);
+		    					} else {
+		    		            System.out.println("Infelizmente essa caracteristica não está presente!");
+		    					}
+		    				}
+		    			}else if(ncasa==2) {
+		    				
+		    			}
+		    			
+		    			
+		    	}//chave do while usuario}
+		      	
+		    	//chaves do final do codigo--------
+	}
+}
