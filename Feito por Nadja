@@ -1,0 +1,146 @@
+package testedeiantem;
+
+import java.util.Scanner;
+
+public class JOGO {
+
+    public static void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
+
+        String[] casa1 = {"brasileira", "amarela", "suco", "tucano", "samba"};
+        String[] casa2 = {"japonesa", "azul", "chá verde", "panda", "k-pop"};
+        String[] casa3 = {"italiana", "verde", "café", "lobo", "opera"};
+        String[] casa4 = {"canadense", "vermelha", "xarope", "castor", "jazz"};
+        String[] casa5 = {"sul africana", "laranja", "refrigerante", "leão", "rock"};
+
+        String[][] solucao = { casa1, casa2, casa3, casa4, casa5 };
+
+        // TABELA DO USUÁRIO
+        String[][] tabelaUsuario = new String[5][5];
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                tabelaUsuario[i][j] = "___";
+            }
+        }
+
+        // DICAS
+        String[] dicas = {
+            "Dica 1: O dono da casa começa ouvindo música brasileira enquanto toma suco café da manhã.",
+            "Dica 2: O animal da casa 1 é um pássaro exótico.",
+            "Dica 3: Ao lado da casa azul é possível ouvir música brasileira.",
+            "Dica 4: O morador costuma relaxar à noite tomando chá quente antes de dormir.",
+            "Dica 5: A casa japonesa tem cor azul como predominante e uma das crianças da casa tem um panda de pelúcia.",
+            "Dica 6: Ao lado da casa onde se escuta ópera, é possível ouvir kpop.",
+            "Dica 7: Na casa italiana, o cheiro de café expresso domina a casa todo dia.",
+            "Dica 8: A decoração da casa do meio tem tons verdes.",
+            "Dica 9: O italiano adora ouvir ópera enquanto lê.",
+            "Dica 10: A casa canadense tem um frasco de xarope de bordo sempre à disposição.",
+            "Dica 11: A cor vermelha aparece no telhado da casa 4.",
+            "Dica 12: Ao lado da casa com cheiro de laranja é possível ouvir jazz.",
+            "Dica 13: Na última casa o morador adora refrigerante de laranja.",
+            "Dica 14: Na casa 5 as janelas são laranjas para combinar com o pé de laranjeira.",
+            "Dica 15: Ao lado da casa canadense é possível ouvir rock enquanto um leão ruge."
+        };
+
+        System.out.println("=== TESTE DE EINSTEIN ===\n");
+
+        System.out.println("===== DICAS =====");
+        for (String d : dicas) {
+            System.out.println(d);
+        }
+
+        System.out.println(
+            "Bem vindo(a) ao jogo conhecido com teste de Einstem da 1812\n" +
+            "Antes de iniciar vamos dar uma olhada nas regras!\n" +
+            "Temos 5 casas cada casa tem uma nacionalidade, cor, bebida, animal e estilo musical unicos\n" +
+            "A partir das dicas a seguir e das opções disponiveis você deve determinar as caracteristicas de cada casa()" +
+            "todas as respostas em letra minuscula)!"
+        );
+
+        System.out.println(
+            "\nAs possíveis nacionalidades são: Brasileira; Japonesa; Sul-africana, Italiana e Canadense" +
+            "\nAs possíveis cores são: Laranja; Amarela; Azul; Verde e Vermelha." +
+            "\nAs possíveis bebidas são: Xarope; Refrigerante; Café; Chá verde e Suco de maracujá." +
+            "\nOs possíveis animais são: Tucano; Panda; Lobo; Castor e Leão." +
+            "\nOs possíveis estilos musicais são: Rock; Jazz; Opera; K-pop e Samba.\n"
+        );
+
+        // LOOP
+        while (!tabelaCompleta(tabelaUsuario)) {
+
+            mostrarTabela(tabelaUsuario);
+
+            System.out.print("\nEscolha a casa (1 a 5): ");
+            int casa = entrada.nextInt() - 1;
+            entrada.nextLine();
+
+            if (casa < 0 || casa > 4) {
+                System.out.println("Casa inválida.");
+                continue;
+            }
+
+            System.out.print("Atributo (nacionalidade, cor, bebida, animal, estilo): ");
+            String atributoTexto = entrada.nextLine().toLowerCase();
+            int atributo = converterAtributo(atributoTexto);
+
+            if (atributo == -1) {
+                System.out.println("Atributo inválido.");
+                continue;
+            }
+
+            if (!tabelaUsuario[casa][atributo].equals("___")) {
+                System.out.println("Essa posição já está preenchida.");
+                continue;
+            }
+
+            System.out.print("Valor: ");
+            String valor = entrada.nextLine().toLowerCase();
+
+            if (solucao[casa][atributo].equals(valor)) {
+                tabelaUsuario[casa][atributo] = valor;
+                System.out.println(" Correto!");
+            } else {
+                System.out.println(" Incorreto. Use as dicas.");
+            }
+        }
+
+        System.out.println("\n VOCÊ COMPLETOU O DESAFIO ");
+        mostrarTabela(tabelaUsuario);
+        entrada.close();
+    }
+
+    // FUNÇÕES
+    static int converterAtributo(String atributo) {
+        switch (atributo) {
+            case "nacionalidade": return 0;
+            case "cor": return 1;
+            case "bebida": return 2;
+            case "animal": return 3;
+            case "estilo": return 4;
+            default: return -1;
+        }
+    }
+
+    static void mostrarTabela(String[][] tabela) {
+        System.out.println("\nCASA | NAC | COR | BEB | ANI | EST");
+        for (int i = 0; i < 5; i++) {
+            System.out.print(" " + (i + 1) + "   ");
+            for (int j = 0; j < 5; j++) {
+                System.out.print("| " + tabela[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static boolean tabelaCompleta(String[][] tabela) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (tabela[i][j].equals("___")) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
