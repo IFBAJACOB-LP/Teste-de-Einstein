@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class DicasEinstein {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+     
+        String[] dicas = {
+            "Dica 1: O dono da casa começa ouvindo música brasileira enquanto toma suco natural no café.",
+            "Dica 2: O animal da casa 1 é um pássaro exótico.",
+            "Dica 3: Ao lado da casa azul é possível ouvir música brasileira.",
+            "Dica 4: O morador costuma relaxar à noite tomando chá quente antes de dormir.",
+            "Dica 5: A casa japonesa tem cor azul como predominante e uma das crianças da casa tem um panda de pelúcia.",
+
+            "Dica 6: Ao lado da casa onde se escuta ópera, é possível ouvir kpop.",
+            "Dica 7: Na casa italiana, o cheiro de café expresso domina a casa todo dia.",
+            "Dica 8: A decoração da casa do meio tem tons verdes.",
+            "Dica 9: O italiano adora ouvir ópera enquanto lê.",
+            "Dica 10: A casa canadense tem um frasco de xarope de bordo sempre à disposição.",
+
+            "Dica 11: A cor vermelha aparece no telhado da casa 4.",
+            "Dica 12: Ao lado da casa com cheiro de laranja é possível ouvir jazz.",
+            "Dica 13: Na última casa o morador adora refrigerante de laranja.",
+            "Dica 14: Na casa 5 as janelas são laranjas para combinar com o pé de laranjeira que fica na frente da casa.",
+            "Dica 15: Ao lado da casa canadense é possível ouvir rock enquanto um leão ruge."
+        };
+
+        System.out.println("===== TESTE DO EINSTEIN - DICAS =====\n");
+
+        for (int posicao = 0; posicao < 15; posicao++) {
+            System.out.println(dicas[posicao]);
+        }
+
+       
+    }
+}
